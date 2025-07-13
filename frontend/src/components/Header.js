@@ -17,9 +17,9 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo with Special Effects */}
+          {/* Logo with Spectacular Effects */}
           <Link to="/" className="block">
-            <SimpleLogo 
+            <SpectacularLogo 
               text="Elchin Hussain"
               className="text-2xl font-light tracking-wide text-black transition-colors duration-300"
             />
