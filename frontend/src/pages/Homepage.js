@@ -169,9 +169,9 @@ const Homepage = () => {
             <div className="text-center mt-16">
               <Link
                 to="/portfolio"
-                className="inline-block px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 elastic-text shake-text"
+                className="inline-block px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300"
               >
-                <TypingText text="View All Work" speed={80} />
+                <SimpleText text="View All Work" />
               </Link>
             </div>
           </FadeInOnScroll>
