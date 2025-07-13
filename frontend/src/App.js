@@ -9,10 +9,12 @@ import Journal from './pages/Journal';
 import Contact from './pages/Contact';
 import PageTransition from './components/PageTransition';
 import { ProgressBar } from './components/ScrollAnimations';
+import { CustomCursor } from './components/LogoEffects';
 
 function App() {
   return (
     <div className="App">
+      <CustomCursor />
       <BrowserRouter>
         <ProgressBar />
         <Header />
