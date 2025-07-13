@@ -13,28 +13,59 @@ const CustomCursor = () => {
     };
 
     const handleMouseEnter = (e) => {
-      if (e.target.closest('a, button')) {
-        setIsHovering(true);
-        setCursorType('hover');
-      } else if (e.target.closest('[data-cursor-logo]')) {
-        setIsHovering(true);
-        setCursorType('logo');
+      // Check if e.target is a DOM element and has the closest method
+      if (e.target && typeof e.target.closest === 'function') {
+        if (e.target.closest('a, button')) {
+          setIsHovering(true);
+          setCursorType('hover');
+        } else if (e.target.closest('[data-cursor-logo]')) {
+          setIsHovering(true);
+          setCursorType('logo');
+        }
       }
     };
 
     const handleMouseLeave = (e) => {
-      if (e.target.closest('a, button') || e.target.closest('[data-cursor-logo]')) {
-        setIsHovering(false);
-        setCursorType('default');
+      // Check if e.target is a DOM element and has the closest method
+      if (e.target && typeof e.target.closest === 'function') {
+        if (e.target.closest('a, button') || e.target.closest('[data-cursor-logo]')) {
+          setIsHovering(false);
+          setCursorType('default');
+        }
+      }
+    };
+
+    const handleMouseOver = (e) => {
+      // Alternative approach using event delegation
+      if (e.target && e.target.nodeType === Node.ELEMENT_NODE) {
+        const target = e.target;
+        
+        // Check for links and buttons
+        if (target.matches('a, button') || target.closest?.('a, button')) {
+          setIsHovering(true);
+          setCursorType('hover');
+        }
+        // Check for logo
+        else if (target.matches('[data-cursor-logo]') || target.closest?.('[data-cursor-logo]')) {
+          setIsHovering(true);
+          setCursorType('logo');
+        }
+        // Reset to default
+        else {
+          setIsHovering(false);
+          setCursorType('default');
+        }
       }
     };
 
     window.addEventListener('mousemove', updateMousePosition);
+    document.addEventListener('mouseover', handleMouseOver);
     document.addEventListener('mouseenter', handleMouseEnter, true);
     document.addEventListener('mouseleave', handleMouseLeave, true);
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
+      document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseenter', handleMouseEnter, true);
       document.removeEventListener('mouseleave', handleMouseLeave, true);
     };
