@@ -246,13 +246,13 @@ const Homepage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <FadeInOnScroll>
             <h2 className="text-4xl md:text-5xl font-light text-black mb-8 tracking-tight">
-              <MouseFollowText 
+              <SimpleText 
                 text="Let's create something" 
                 className="block mb-2"
               />
-              <GradientText 
+              <SimpleText 
                 text="extraordinary together." 
-                colors={["#000000", "#444444", "#666666"]}
+                className="text-black"
               />
             </h2>
           </FadeInOnScroll>
