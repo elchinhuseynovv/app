@@ -189,7 +189,7 @@ const Homepage = () => {
                     <CounterOnScroll target={50} suffix="+" />
                   </div>
                   <p className="text-sm text-gray-600 font-light tracking-wide">
-                    <StaggerText text="Projects Completed" delay={30} />
+                    <SimpleText text="Projects Completed" />
                   </p>
                 </div>
               </ScaleOnScroll>
