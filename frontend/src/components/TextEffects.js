@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-// Typing Text Effect Component
+// Simple Text Component - always visible
+export const SimpleText = ({ text, className = "" }) => {
+  return (
+    <span className={className}>
+      {text}
+    </span>
+  );
+};
+
+// Typing Text Effect Component - simplified
 export const TypingText = ({ text, speed = 100, className = "" }) => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,128 +25,67 @@ export const TypingText = ({ text, speed = 100, className = "" }) => {
   }, [currentIndex, text, speed]);
 
   return (
-    <span className={`${className} typing-text`}>
+    <span className={className}>
       {displayText}
     </span>
   );
 };
 
-// Stagger Text Effect Component
+// Stagger Text Effect Component - simplified
 export const StaggerText = ({ text, className = "", delay = 100 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 200);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <span className={`${className} stagger-text`}>
-      {text.split('').map((char, index) => (
-        <span
-          key={index}
-          className="letter"
-          style={{
-            animationDelay: isVisible ? `${index * delay}ms` : '0ms',
-            opacity: isVisible ? 1 : 0
-          }}
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </span>
-      ))}
+    <span className={className}>
+      {text}
     </span>
   );
 };
 
-// Wave Text Effect Component
+// Wave Text Effect Component - simplified
 export const WaveText = ({ text, className = "" }) => {
   return (
-    <span className={`${className} wave-text`}>
-      {text.split('').map((char, index) => (
-        <span
-          key={index}
-          className="wave-letter"
-          style={{
-            animationDelay: `${index * 0.1}s`
-          }}
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </span>
-      ))}
+    <span className={className}>
+      {text}
     </span>
   );
 };
 
-// Glitch Text Effect Component
+// Glitch Text Effect Component - REMOVED, replaced with normal text
 export const GlitchText = ({ text, className = "" }) => {
   return (
-    <span className={`${className} glitch-text`} data-text={text}>
+    <span className={className}>
       {text}
     </span>
   );
 };
 
-// Reveal Text Effect Component
+// Reveal Text Effect Component - simplified
 export const RevealText = ({ text, className = "", delay = 0 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-
   return (
-    <span className={`${className} ${isVisible ? 'reveal-text' : ''}`}>
+    <span className={className}>
       {text}
     </span>
   );
 };
 
-// Gradient Text Effect Component
+// Gradient Text Effect Component - simplified to avoid transparency issues
 export const GradientText = ({ text, className = "", colors = ["#000000", "#333333", "#666666"] }) => {
-  const gradientStyle = {
-    background: `linear-gradient(135deg, ${colors.join(', ')})`,
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text'
-  };
-
   return (
-    <span className={`${className} gradient-text`} style={gradientStyle}>
+    <span className={`${className} text-black`}>
       {text}
     </span>
   );
 };
 
-// Mouse Follow Text Effect Component
+// Mouse Follow Text Effect Component - simplified
 export const MouseFollowText = ({ text, className = "" }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const textShadow = `${mousePosition.x / 100}px ${mousePosition.y / 100}px 10px rgba(0, 0, 0, 0.3)`;
-
   return (
-    <span 
-      className={`${className}`} 
-      style={{ 
-        textShadow,
-        transition: 'text-shadow 0.1s ease-out'
-      }}
-    >
+    <span className={className}>
       {text}
     </span>
   );
 };
 
-// Animated Counter Component
+// Animated Counter Component - simplified
 export const AnimatedCounter = ({ target, duration = 2000, className = "" }) => {
   const [count, setCount] = useState(0);
 
@@ -164,31 +112,27 @@ export const AnimatedCounter = ({ target, duration = 2000, className = "" }) => 
   );
 };
 
-// Morphing Text Component
+// Morphing Text Component - simplified
 export const MorphingText = ({ texts, interval = 3000, className = "" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex(prev => (prev + 1) % texts.length);
-        setIsAnimating(false);
-      }, 500);
+      setCurrentIndex(prev => (prev + 1) % texts.length);
     }, interval);
 
     return () => clearInterval(timer);
   }, [texts, interval]);
 
   return (
-    <span className={`${className} morphing-text ${isAnimating ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
+    <span className={className}>
       {texts[currentIndex]}
     </span>
   );
 };
 
 export default {
+  SimpleText,
   TypingText,
   StaggerText,
   WaveText,
