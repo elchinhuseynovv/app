@@ -154,7 +154,7 @@ const Homepage = () => {
                       {item.category}
                     </span>
                     <h3 className="text-xl font-light text-black tracking-tight hover-gradient">
-                      <GlitchText text={item.title} />
+                      <SimpleText text={item.title} />
                     </h3>
                     <p className="text-sm text-gray-600 font-light">
                       {item.description}
