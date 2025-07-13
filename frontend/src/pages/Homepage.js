@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { TypingText, StaggerText, WaveText, GlitchText, RevealText, GradientText, MouseFollowText, MorphingText } from '../components/TextEffects';
-import { GlitchLogo, MorphingLogo, NeonLogo } from '../components/LogoEffects';
+import { SimpleText, TypingText, StaggerText, WaveText, RevealText, GradientText, MouseFollowText, MorphingText } from '../components/TextEffects';
+import { SimpleLogo, MorphingLogo, NeonLogo } from '../components/LogoEffects';
 import { 
   FadeInOnScroll, 
   StaggerChildren, 
