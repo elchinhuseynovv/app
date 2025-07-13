@@ -227,7 +227,7 @@ const Homepage = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <FadeInOnScroll>
             <blockquote className="text-3xl md:text-4xl font-light mb-8 italic">
-              <NeonLogo 
+              <SimpleText 
                 text="&quot;Design is not just what it looks like and feels like. Design is how it works.&quot;"
                 className="text-white"
               />
