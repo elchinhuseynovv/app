@@ -17,6 +17,7 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
   const [typewriterText, setTypewriterText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [magneticOffset, setMagneticOffset] = useState({ x: 0, y: 0 });
+  const [showRipple, setShowRipple] = useState(false);
   const logoRef = useRef(null);
 
   // Typewriter effect
