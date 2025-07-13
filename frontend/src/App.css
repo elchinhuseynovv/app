@@ -1,8 +1,317 @@
-/* Portfolio Website Styles */
+/* Portfolio Website Styles with Special Text Effects */
 
 .App {
   min-height: 100vh;
   font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ============================================
+   SPECIAL TEXT EFFECTS
+   ============================================ */
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #000000 0%, #333333 50%, #666666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Glitch Effect */
+.glitch-text {
+  position: relative;
+  color: #000;
+  font-weight: 300;
+  animation: glitch 2s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.glitch-text::before {
+  animation: glitch-1 0.5s infinite;
+  color: #ff0000;
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-2 0.5s infinite;
+  color: #00ff00;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(1px, -1px); }
+  40% { transform: translate(1px, 1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(-1px, 1px); }
+}
+
+/* Typing Effect */
+.typing-text {
+  overflow: hidden;
+  border-right: 2px solid #000;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #000; }
+}
+
+/* Reveal Text Animation */
+.reveal-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  animation: revealText 1.5s ease-in-out;
+  transform-origin: left;
+}
+
+@keyframes revealText {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(1); }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Floating Animation */
+.floating-text {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Stagger Letter Animation */
+.stagger-text {
+  display: inline-block;
+}
+
+.stagger-text .letter {
+  display: inline-block;
+  animation: staggerLetter 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes staggerLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* Morphing Text */
+.morphing-text {
+  position: relative;
+  animation: morphText 4s ease-in-out infinite;
+}
+
+@keyframes morphText {
+  0%, 100% { transform: perspective(400px) rotateY(0deg); }
+  25% { transform: perspective(400px) rotateY(5deg); }
+  50% { transform: perspective(400px) rotateY(0deg); }
+  75% { transform: perspective(400px) rotateY(-5deg); }
+}
+
+/* Glow Effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+  to { text-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
+}
+
+/* Elastic Animation */
+.elastic-text:hover {
+  animation: elastic 0.6s ease-out;
+}
+
+@keyframes elastic {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.2); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.1); }
+  80% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+/* Parallax Text Effect */
+.parallax-text {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.parallax-text > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Slide In Text */
+.slide-in-text {
+  animation: slideInText 1s ease-out;
+}
+
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Bounce Text */
+.bounce-text {
+  animation: bounceText 1s ease-out;
+}
+
+@keyframes bounceText {
+  0% { transform: translateY(-30px); opacity: 0; }
+  50% { transform: translateY(10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Zoom In Text */
+.zoom-in-text {
+  animation: zoomInText 1s ease-out;
+}
+
+@keyframes zoomInText {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Rotate Text */
+.rotate-text {
+  animation: rotateText 1s ease-out;
+}
+
+@keyframes rotateText {
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* Pulse Text */
+.pulse-text {
+  animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Shake Text */
+.shake-text:hover {
+  animation: shakeText 0.5s ease-in-out;
+}
+
+@keyframes shakeText {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Wave Text */
+.wave-text {
+  display: inline-block;
+}
+
+.wave-text .wave-letter {
+  display: inline-block;
+  animation: waveText 1.5s ease-in-out infinite;
+}
+
+@keyframes waveText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 /* Custom animations */
@@ -39,6 +348,37 @@
 .slide-in-from-top {
   animation: slideInFromTop 0.3s ease-out forwards;
 }
+
+/* ============================================
+   ENHANCED HOVER EFFECTS
+   ============================================ */
+
+.hover-gradient:hover {
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY WITH EFFECTS
+   ============================================ */
 
 /* Smooth scrolling */
 html {
@@ -100,6 +440,13 @@ h1, h2, h3, h4, h5, h6 {
   
   .text-5xl {
     font-size: 2.5rem;
+  }
+  
+  /* Disable heavy animations on mobile */
+  .glitch-text,
+  .morphing-text,
+  .parallax-text {
+    animation: none;
   }
 }
 
@@ -214,5 +561,20 @@ button {
   
   img {
     max-width: 100% !important;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

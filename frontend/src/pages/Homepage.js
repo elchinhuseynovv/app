@@ -1,38 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { TypingText, StaggerText, WaveText, GlitchText, RevealText, GradientText, MouseFollowText, MorphingText } from '../components/TextEffects';
 
 const Homepage = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const morphingTexts = [
+    "Creating beyond categories.",
+    "Designing with purpose.",
+    "Art meets technology.",
+    "Vision becomes reality."
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white overflow-hidden">
         <div className="text-center px-8 max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-light tracking-tight text-black mb-8 animate-in fade-in duration-1000">
-            Elchin Hussain
+          <h1 className="text-6xl md:text-8xl font-light tracking-tight text-black mb-8">
+            <MouseFollowText 
+              text="Elchin" 
+              className="inline-block hover-scale cursor-default" 
+            />
+            <span className="mx-4"></span>
+            <GradientText 
+              text="Hussain" 
+              className="inline-block"
+              colors={["#000000", "#333333", "#666666"]}
+            />
           </h1>
-          <p className="text-xl md:text-2xl font-light text-gray-600 mb-12 tracking-wide animate-in fade-in duration-1000 delay-300">
-            Creating beyond categories.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-in fade-in duration-1000 delay-500">
+          
+          <div className="mb-12">
+            <MorphingText 
+              texts={morphingTexts}
+              interval={4000}
+              className="text-xl md:text-2xl font-light text-gray-600 tracking-wide"
+            />
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               to="/portfolio"
-              className="group px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+              className="group px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 elastic-text"
             >
-              View Portfolio
+              <StaggerText text="View Portfolio" delay={50} />
               <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
             <Link
               to="/about"
-              className="group px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105"
+              className="group px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 elastic-text"
             >
-              About Me
+              <RevealText text="About Me" delay={800} />
             </Link>
           </div>
         </div>
 
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-20 w-2 h-2 bg-black rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-32 w-1 h-1 bg-gray-400 rounded-full animate-bounce delay-300"></div>
+          <div className="absolute bottom-32 left-16 w-3 h-3 bg-gray-300 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute bottom-20 right-20 w-2 h-2 bg-black rounded-full animate-bounce delay-700"></div>
+        </div>
+
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-[1px] h-16 bg-gray-300"></div>
+          <div className="w-[1px] h-16 bg-gray-300 floating-text"></div>
         </div>
       </section>
 
@@ -41,9 +79,9 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-light text-black mb-6 tracking-tight">
-              Featured Work
+              <WaveText text="Featured Work" className="hover-shadow" />
             </h2>
-            <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto slide-in-text">
               A curated selection of recent projects spanning design, photography, and digital art.
             </p>
           </div>
@@ -72,21 +110,23 @@ const Homepage = () => {
             ].map((item, index) => (
               <div 
                 key={index}
-                className="group cursor-pointer transform hover:scale-105 transition-all duration-500"
+                className="group cursor-pointer transform hover:scale-105 transition-all duration-500 zoom-in-text"
+                style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="aspect-[4/3] bg-gray-100 overflow-hidden mb-6">
+                <div className="aspect-[4/3] bg-gray-100 overflow-hidden mb-6 relative">
                   <img 
                     src={item.image} 
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="space-y-2">
-                  <span className="text-xs font-light text-gray-500 tracking-wide uppercase">
+                  <span className="text-xs font-light text-gray-500 tracking-wide uppercase pulse-text">
                     {item.category}
                   </span>
-                  <h3 className="text-xl font-light text-black tracking-tight">
-                    {item.title}
+                  <h3 className="text-xl font-light text-black tracking-tight hover-gradient">
+                    <GlitchText text={item.title} />
                   </h3>
                   <p className="text-sm text-gray-600 font-light">
                     {item.description}
@@ -99,28 +139,67 @@ const Homepage = () => {
           <div className="text-center mt-16">
             <Link
               to="/portfolio"
-              className="inline-block px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300"
+              className="inline-block px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 elastic-text shake-text"
             >
-              View All Work
+              <TypingText text="View All Work" speed={80} />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-20 px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-4">
+              <div className="text-4xl font-light text-black glow-text">
+                50+
+              </div>
+              <p className="text-sm text-gray-600 font-light tracking-wide">
+                <StaggerText text="Projects Completed" delay={30} />
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="text-4xl font-light text-black glow-text">
+                10+
+              </div>
+              <p className="text-sm text-gray-600 font-light tracking-wide">
+                <StaggerText text="Years Experience" delay={30} />
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="text-4xl font-light text-black glow-text">
+                25+
+              </div>
+              <p className="text-sm text-gray-600 font-light tracking-wide">
+                <StaggerText text="Happy Clients" delay={30} />
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact CTA Section */}
-      <section className="py-32 px-8 bg-gray-50">
+      <section className="py-32 px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-light text-black mb-8 tracking-tight">
-            Let's create something extraordinary together.
+            <MouseFollowText 
+              text="Let's create something" 
+              className="block mb-2"
+            />
+            <GradientText 
+              text="extraordinary together." 
+              colors={["#000000", "#444444", "#666666"]}
+            />
           </h2>
-          <p className="text-lg text-gray-600 font-light mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 font-light mb-12 max-w-2xl mx-auto bounce-text">
             Available for collaborations, creative partnerships, and commissioned work.
           </p>
           <Link
             to="/contact"
-            className="group inline-block px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+            className="group inline-block px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 elastic-text"
           >
-            Get In Touch
+            <RevealText text="Get In Touch" delay={100} />
             <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
         </div>
