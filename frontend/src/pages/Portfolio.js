@@ -87,7 +87,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid - Enhanced */}
-      <section className="py-20 px-8 bg-white min-h-screen">
+      <section className="py-20 px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {filteredItems.length > 0 ? (
             <StaggerChildren staggerDelay={150}>
