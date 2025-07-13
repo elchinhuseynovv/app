@@ -109,10 +109,10 @@ const Homepage = () => {
           <FadeInOnScroll>
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-light text-black mb-6 tracking-tight">
-                <WaveText text="Featured Work" className="hover-shadow" />
+                <SimpleText text="Featured Work" className="hover-shadow" />
               </h2>
               <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
-                <TypewriterOnScroll text="A curated selection of recent projects spanning design, photography, and digital art." />
+                <SimpleText text="A curated selection of recent projects spanning design, photography, and digital art." />
               </p>
             </div>
           </FadeInOnScroll>
