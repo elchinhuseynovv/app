@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo with Special Effects */}
           <Link to="/" className="block">
-            <AnimatedLogo 
+            <SimpleLogo 
               text="Elchin Hussain"
               className="text-2xl font-light tracking-wide text-black transition-colors duration-300"
             />
