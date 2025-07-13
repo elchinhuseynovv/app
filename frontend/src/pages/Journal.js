@@ -1,6 +1,6 @@
 import React from 'react';
 import { mockJournalPosts } from '../data/mockData';
-import { WaveText, GlitchText, TypewriterOnScroll, GradientText, StaggerText } from '../components/TextEffects';
+import { WaveText, GlitchText, GradientText, StaggerText } from '../components/TextEffects';
 import { 
   FadeInOnScroll, 
   StaggerChildren, 
