@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [cursorType, setCursorType] = useState('default');
   const cursorRef = useRef(null);
 
   useEffect(() => {
@@ -12,14 +13,19 @@ const CustomCursor = () => {
     };
 
     const handleMouseEnter = (e) => {
-      if (e.target.matches('a, button, [data-cursor-hover]')) {
+      if (e.target.closest('a, button')) {
         setIsHovering(true);
+        setCursorType('hover');
+      } else if (e.target.closest('[data-cursor-logo]')) {
+        setIsHovering(true);
+        setCursorType('logo');
       }
     };
 
     const handleMouseLeave = (e) => {
-      if (e.target.matches('a, button, [data-cursor-hover]')) {
+      if (e.target.closest('a, button') || e.target.closest('[data-cursor-logo]')) {
         setIsHovering(false);
+        setCursorType('default');
       }
     };
 
@@ -34,17 +40,35 @@ const CustomCursor = () => {
     };
   }, []);
 
+  const getScale = () => {
+    switch (cursorType) {
+      case 'hover': return 1.8;
+      case 'logo': return 1.4;
+      default: return 1;
+    }
+  };
+
+  const getOpacity = () => {
+    switch (cursorType) {
+      case 'hover': return 0.8;
+      case 'logo': return 0.6;
+      default: return 1;
+    }
+  };
+
   return (
     <div
       ref={cursorRef}
-      className="custom-cursor"
+      className={`custom-cursor ${cursorType}`}
       style={{
         left: mousePosition.x,
         top: mousePosition.y,
-        transform: `translate(-50%, -50%) scale(${isHovering ? 1.5 : 1})`,
+        transform: `translate(-50%, -50%) scale(${getScale()})`,
+        opacity: getOpacity(),
       }}
     >
       <div className="cursor-inner" />
+      <div className="cursor-outer" />
     </div>
   );
 };
