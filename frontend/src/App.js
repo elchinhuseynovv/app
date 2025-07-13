@@ -7,19 +7,24 @@ import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Journal from './pages/Journal';
 import Contact from './pages/Contact';
+import PageTransition from './components/PageTransition';
+import { ProgressBar } from './components/ScrollAnimations';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ProgressBar />
         <Header />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/journal" element={<Journal />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/journal" element={<Journal />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </PageTransition>
       </BrowserRouter>
     </div>
   );
