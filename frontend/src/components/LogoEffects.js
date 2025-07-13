@@ -253,6 +253,7 @@ export const RotatingLogo = ({ text = "Elchin Hussain", className = "" }) => {
 
 export default {
   SimpleLogo,
+  SpectacularLogo,
   AnimatedLogo,
   GlitchLogo,
   MorphingLogo,
