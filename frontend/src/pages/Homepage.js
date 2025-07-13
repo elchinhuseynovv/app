@@ -1,0 +1,132 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Homepage = () => {
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+        <div className="text-center px-8 max-w-4xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-light tracking-tight text-black mb-8 animate-in fade-in duration-1000">
+            Elchin Hussain
+          </h1>
+          <p className="text-xl md:text-2xl font-light text-gray-600 mb-12 tracking-wide animate-in fade-in duration-1000 delay-300">
+            Creating beyond categories.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-in fade-in duration-1000 delay-500">
+            <Link
+              to="/portfolio"
+              className="group px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+            >
+              View Portfolio
+              <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </Link>
+            <Link
+              to="/about"
+              className="group px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105"
+            >
+              About Me
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-[1px] h-16 bg-gray-300"></div>
+        </div>
+      </section>
+
+      {/* Featured Work Section */}
+      <section className="py-32 px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-light text-black mb-6 tracking-tight">
+              Featured Work
+            </h2>
+            <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
+              A curated selection of recent projects spanning design, photography, and digital art.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Featured Work Items */}
+            {[
+              {
+                title: "Brand Identity System",
+                category: "Design",
+                image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
+                description: "Complete visual identity for emerging tech startup"
+              },
+              {
+                title: "Urban Landscapes",
+                category: "Photography",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                description: "Architectural photography series exploring modern cityscapes"
+              },
+              {
+                title: "Digital Abstract",
+                category: "Digital Art",
+                image: "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=800&h=600&fit=crop",
+                description: "Generative art exploring form and color relationships"
+              }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="group cursor-pointer transform hover:scale-105 transition-all duration-500"
+              >
+                <div className="aspect-[4/3] bg-gray-100 overflow-hidden mb-6">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <span className="text-xs font-light text-gray-500 tracking-wide uppercase">
+                    {item.category}
+                  </span>
+                  <h3 className="text-xl font-light text-black tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 font-light">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Link
+              to="/portfolio"
+              className="inline-block px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300"
+            >
+              View All Work
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA Section */}
+      <section className="py-32 px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-light text-black mb-8 tracking-tight">
+            Let's create something extraordinary together.
+          </h2>
+          <p className="text-lg text-gray-600 font-light mb-12 max-w-2xl mx-auto">
+            Available for collaborations, creative partnerships, and commissioned work.
+          </p>
+          <Link
+            to="/contact"
+            className="group inline-block px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+          >
+            Get In Touch
+            <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Homepage;
