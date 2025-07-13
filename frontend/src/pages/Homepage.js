@@ -41,11 +41,11 @@ const Homepage = () => {
           <FadeInOnScroll delay={200}>
             <h1 className="text-6xl md:text-8xl font-light tracking-tight text-black mb-8">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <GlitchLogo 
+                <SimpleLogo 
                   text="Elchin"
                   className="hover:scale-105 transition-transform duration-300"
                 />
-                <MorphingLogo 
+                <SimpleLogo 
                   text="Hussain"
                   className="hover:scale-105 transition-transform duration-300"
                 />
