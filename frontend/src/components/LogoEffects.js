@@ -80,6 +80,13 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
   const handleMouseLeave = () => {
     setMagneticOffset({ x: 0, y: 0 });
     setIsHovered(false);
+    setShowRipple(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    setShowRipple(true);
+    setTimeout(() => setShowRipple(false), 1500);
   };
 
   // Split text into letters for individual animations
