@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { mockPortfolioItems } from '../data/mockData';
-import { WaveText, GlitchText, TypewriterOnScroll, GradientText } from '../components/TextEffects';
+import { WaveText, GlitchText, GradientText } from '../components/TextEffects';
 import { 
   FadeInOnScroll, 
   StaggerChildren, 
