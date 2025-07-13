@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { WaveText, GlitchText, TypewriterOnScroll, GradientText, StaggerText } from '../components/TextEffects';
+import { WaveText, GlitchText, GradientText, StaggerText } from '../components/TextEffects';
 import { 
   FadeInOnScroll, 
   StaggerChildren, 
