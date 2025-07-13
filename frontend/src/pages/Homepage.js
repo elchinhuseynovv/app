@@ -66,16 +66,16 @@ const Homepage = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
                 to="/portfolio"
-                className="group px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 elastic-text"
+                className="group px-8 py-4 bg-black text-white font-light text-sm tracking-wide hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
               >
-                <StaggerText text="View Portfolio" delay={50} />
+                <SimpleText text="View Portfolio" />
                 <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
               </Link>
               <Link
                 to="/about"
-                className="group px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 elastic-text"
+                className="group px-8 py-4 border border-black text-black font-light text-sm tracking-wide hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105"
               >
-                <RevealText text="About Me" delay={800} />
+                <SimpleText text="About Me" />
               </Link>
             </div>
           </FadeInOnScroll>
