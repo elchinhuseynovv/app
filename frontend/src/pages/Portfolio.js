@@ -54,7 +54,10 @@ const Portfolio = () => {
           
           <SlideAndFade direction="up">
             <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
-              <TypewriterOnScroll text="A comprehensive showcase of work spanning multiple disciplines and creative approaches." />
+              <TypewriterOnScroll text="Software Engineer/LLM & Machine Learning Engineer" />
+            </p>
+            <p className="text-lg text-gray-500 font-light max-w-2xl mx-auto mt-4">
+              <TypewriterOnScroll text="After Hours: Making Music & Grading Colors" />
             </p>
           </SlideAndFade>
         </div>
