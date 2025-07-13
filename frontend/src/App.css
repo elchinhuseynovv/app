@@ -6,6 +6,208 @@
 }
 
 /* ============================================
+   LOGO SPECIAL EFFECTS
+   ============================================ */
+
+/* Animated Logo Effects */
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-letter {
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.logo-letter:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.logo-letter.hovered {
+  animation: letterWave 0.6s ease-in-out;
+}
+
+@keyframes letterWave {
+  0%, 100% { transform: translateY(0) rotateZ(0deg); }
+  50% { transform: translateY(-5px) rotateZ(2deg); }
+}
+
+.logo-underline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, black, transparent);
+}
+
+.particle {
+  animation: particleFloat 1.5s ease-out infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) scale(0); opacity: 0; }
+  50% { transform: translateY(-20px) scale(1); opacity: 1; }
+  100% { transform: translateY(-40px) scale(0); opacity: 0; }
+}
+
+/* Glitch Logo Effects */
+.glitch-logo {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text {
+  position: relative;
+  z-index: 1;
+}
+
+.glitch-layer-1,
+.glitch-layer-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.glitch-layer-1 {
+  color: #ff0000;
+  animation: glitch-1 0.3s infinite;
+}
+
+.glitch-layer-2 {
+  color: #00ff00;
+  animation: glitch-2 0.3s infinite;
+}
+
+@keyframes glitch-1 {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-1px); }
+  40% { transform: translateX(1px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(1px); }
+  40% { transform: translateX(-1px); }
+  60% { transform: translateX(1px); }
+  80% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 0.3s infinite;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 0.3s infinite;
+}
+
+/* Morphing Logo Effects */
+.morphing-logo {
+  display: inline-block;
+}
+
+.morphing-text {
+  transform-origin: center;
+}
+
+/* Liquid Logo Effects */
+.liquid-logo {
+  position: relative;
+  display: inline-block;
+}
+
+.liquid-text.liquid-active {
+  animation: liquidWave 1s ease-in-out;
+}
+
+@keyframes liquidWave {
+  0%, 100% { transform: scaleY(1); }
+  25% { transform: scaleY(1.1) scaleX(0.95); }
+  50% { transform: scaleY(0.9) scaleX(1.05); }
+  75% { transform: scaleY(1.05) scaleX(0.98); }
+}
+
+@keyframes liquidDrop {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  50% { transform: translateY(10px) scale(0.8); opacity: 0.8; }
+  100% { transform: translateY(20px) scale(0.5); opacity: 0; }
+}
+
+/* Neon Logo Effects */
+.neon-logo {
+  display: inline-block;
+}
+
+.neon-text.neon-glow {
+  color: #000;
+  text-shadow: 
+    0 0 5px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(0, 0, 0, 0.1);
+  animation: neonFlicker 2s infinite alternate;
+}
+
+@keyframes neonFlicker {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px rgba(0, 0, 0, 0.3),
+      0 0 10px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  50% { 
+    text-shadow: 
+      0 0 8px rgba(0, 0, 0, 0.4),
+      0 0 15px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Typewriter Logo Effects */
+.typewriter-logo {
+  display: inline-block;
+}
+
+.typewriter-cursor {
+  color: #000;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* 3D Rotating Logo Effects */
+.rotating-logo {
+  perspective: 1000px;
+  display: inline-block;
+}
+
+.rotating-text {
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.text-front,
+.text-back {
+  backface-visibility: hidden;
+}
+
+.text-back {
+  transform: rotateY(180deg);
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ============================================
    SPECIAL TEXT EFFECTS
    ============================================ */
 
@@ -60,22 +262,6 @@
   40% { transform: translate(-2px, -2px); }
   60% { transform: translate(2px, 2px); }
   80% { transform: translate(2px, -2px); }
-}
-
-@keyframes glitch-1 {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(-1px, -1px); }
-  60% { transform: translate(1px, 1px); }
-  80% { transform: translate(1px, -1px); }
-}
-
-@keyframes glitch-2 {
-  0%, 100% { transform: translate(0); }
-  20% { transform: translate(1px, -1px); }
-  40% { transform: translate(1px, 1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(-1px, 1px); }
 }
 
 /* Typing Effect */
@@ -445,7 +631,15 @@ h1, h2, h3, h4, h5, h6 {
   /* Disable heavy animations on mobile */
   .glitch-text,
   .morphing-text,
-  .parallax-text {
+  .parallax-text,
+  .glitch-logo,
+  .morphing-logo,
+  .liquid-logo,
+  .rotating-logo {
+    animation: none;
+  }
+  
+  .logo-letter.hovered {
     animation: none;
   }
 }
@@ -457,6 +651,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .aspect-golden {
   aspect-ratio: 1.618/1;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
 }
 
 /* Animation delays */

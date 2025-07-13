@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { AnimatedLogo } from './LogoEffects';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,12 +17,12 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link 
-            to="/" 
-            className="text-2xl font-light tracking-wide text-black hover:text-gray-600 transition-colors duration-300"
-          >
-            Elchin Hussain
+          {/* Logo with Special Effects */}
+          <Link to="/" className="block">
+            <AnimatedLogo 
+              text="Elchin Hussain"
+              className="text-2xl font-light tracking-wide text-black transition-colors duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}

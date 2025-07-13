@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { TypingText, StaggerText, WaveText, GlitchText, RevealText, GradientText, MouseFollowText, MorphingText } from '../components/TextEffects';
+import { GlitchLogo, MorphingLogo, NeonLogo } from '../components/LogoEffects';
 import { 
   FadeInOnScroll, 
   StaggerChildren, 
@@ -39,16 +40,16 @@ const Homepage = () => {
         <div className="text-center px-8 max-w-4xl mx-auto relative z-10">
           <FadeInOnScroll delay={200}>
             <h1 className="text-6xl md:text-8xl font-light tracking-tight text-black mb-8">
-              <MouseFollowText 
-                text="Elchin" 
-                className="inline-block hover-scale cursor-default" 
-              />
-              <span className="mx-4"></span>
-              <GradientText 
-                text="Hussain" 
-                className="inline-block"
-                colors={["#000000", "#333333", "#666666"]}
-              />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <GlitchLogo 
+                  text="Elchin"
+                  className="hover:scale-105 transition-transform duration-300"
+                />
+                <MorphingLogo 
+                  text="Hussain"
+                  className="hover:scale-105 transition-transform duration-300"
+                />
+              </div>
             </h1>
           </FadeInOnScroll>
           
@@ -227,9 +228,9 @@ const Homepage = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <FadeInOnScroll>
             <blockquote className="text-3xl md:text-4xl font-light mb-8 italic">
-              <TypewriterOnScroll 
-                text="&quot;Design is not just what it looks like and feels like. Design is how it works.&quot;" 
-                speed={30}
+              <NeonLogo 
+                text="&quot;Design is not just what it looks like and feels like. Design is how it works.&quot;"
+                className="text-white"
               />
             </blockquote>
           </FadeInOnScroll>
