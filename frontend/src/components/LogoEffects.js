@@ -407,6 +407,8 @@ export const RotatingLogo = ({ text = "Elchin Hussain", className = "" }) => {
   );
 };
 
+export { CustomCursor };
+
 export default {
   SimpleLogo,
   SpectacularLogo,
