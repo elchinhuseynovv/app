@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { SimpleLogo } from './LogoEffects';
+import { SpectacularLogo } from './LogoEffects';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
