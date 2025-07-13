@@ -34,10 +34,38 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { name: 'Instagram', url: 'https://instagram.com/elchinhussain', icon: '📷' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/elchinhussain', icon: '💼' },
-    { name: 'Behance', url: 'https://behance.net/elchinhussain', icon: '🎨' },
-    { name: 'Twitter', url: 'https://twitter.com/elchinhussain', icon: '🐦' }
+    { 
+      name: 'Instagram', 
+      url: 'https://www.instagram.com/elchinhussain/', 
+      icon: '📷',
+      color: 'from-pink-500 to-purple-600',
+      hoverColor: 'hover:text-pink-600',
+      bgColor: 'bg-gradient-to-br from-pink-100 to-purple-100'
+    },
+    { 
+      name: 'LinkedIn', 
+      url: 'https://www.linkedin.com/in/elchinhussain/', 
+      icon: '💼',
+      color: 'from-blue-500 to-blue-700',
+      hoverColor: 'hover:text-blue-600',
+      bgColor: 'bg-gradient-to-br from-blue-100 to-blue-200'
+    },
+    { 
+      name: 'Behance', 
+      url: 'https://www.behance.net/elchinhuseynov2', 
+      icon: '🎨',
+      color: 'from-indigo-500 to-purple-600',
+      hoverColor: 'hover:text-indigo-600',
+      bgColor: 'bg-gradient-to-br from-indigo-100 to-purple-100'
+    },
+    { 
+      name: 'Facebook', 
+      url: 'https://www.facebook.com/elchin.huseynov.18/?locale=pl_PL', 
+      icon: '👥',
+      color: 'from-blue-600 to-blue-800',
+      hoverColor: 'hover:text-blue-700',
+      bgColor: 'bg-gradient-to-br from-blue-100 to-blue-200'
+    }
   ];
 
   return (
