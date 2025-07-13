@@ -96,10 +96,15 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
     <div 
       ref={logoRef}
       className="relative inline-block perspective-1000"
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
+      {/* Ripple Effect */}
+      {showRipple && (
+        <div className="logo-ripple" />
+      )}
+
       {/* Enhanced Particles */}
       {particles.map((particle) => (
         <div
