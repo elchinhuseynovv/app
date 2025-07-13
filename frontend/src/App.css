@@ -144,6 +144,36 @@
   }
 }
 
+/* Enhanced Ripple Effect */
+.logo-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  animation: rippleEffect 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
 /* Floating Particles */
 @keyframes particleFloat {
   0% { transform: translateY(0) scale(0); opacity: 0; }
