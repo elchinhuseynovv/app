@@ -18,7 +18,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-8 py-6">
         <div className="flex items-center justify-between">
           {/* Logo with Spectacular Effects */}
-          <Link to="/" className="block">
+          <Link to="/" className="block" data-cursor-logo>
             <SpectacularLogo 
               text="Elchin Hussain"
               className="text-2xl font-light tracking-wide text-black transition-colors duration-300"
