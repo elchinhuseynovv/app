@@ -9,13 +9,14 @@ export const SimpleLogo = ({ text = "Elchin Hussain", className = "" }) => {
   );
 };
 
-// Spectacular Logo Effect - combines multiple animations
+// Spectacular Logo Effect - combines multiple animations with enhanced effects
 export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [particles, setParticles] = useState([]);
   const [showTypewriter, setShowTypewriter] = useState(true);
   const [typewriterText, setTypewriterText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [magneticOffset, setMagneticOffset] = useState({ x: 0, y: 0 });
   const logoRef = useRef(null);
 
   // Typewriter effect
@@ -37,25 +38,48 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
       id: Math.random(),
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 3 + 1,
-      opacity: Math.random() * 0.5 + 0.3,
-      duration: Math.random() * 2 + 1
+      size: Math.random() * 4 + 1,
+      opacity: Math.random() * 0.6 + 0.2,
+      duration: Math.random() * 2 + 1,
+      angle: Math.random() * 360,
+      speed: Math.random() * 2 + 1
     };
     return particle;
   };
 
   const generateParticles = () => {
-    const newParticles = Array.from({ length: 8 }, createParticle);
+    const newParticles = Array.from({ length: 12 }, createParticle);
     setParticles(newParticles);
   };
 
   useEffect(() => {
     if (isHovered) {
       generateParticles();
-      const interval = setInterval(generateParticles, 500);
+      const interval = setInterval(generateParticles, 300);
       return () => clearInterval(interval);
     }
   }, [isHovered]);
+
+  // Magnetic mouse effect
+  const handleMouseMove = (e) => {
+    if (logoRef.current) {
+      const rect = logoRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      const deltaX = (mouseX - centerX) * 0.1;
+      const deltaY = (mouseY - centerY) * 0.1;
+      
+      setMagneticOffset({ x: deltaX, y: deltaY });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setMagneticOffset({ x: 0, y: 0 });
+    setIsHovered(false);
+  };
 
   // Split text into letters for individual animations
   const letters = text.split('');
@@ -65,9 +89,10 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
       ref={logoRef}
       className="relative inline-block perspective-1000"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
     >
-      {/* Particles */}
+      {/* Enhanced Particles */}
       {particles.map((particle) => (
         <div
           key={particle.id}
@@ -78,15 +103,27 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             opacity: particle.opacity,
-            animation: `particleFloat ${particle.duration}s ease-out forwards`
+            animation: `particleSpectacular ${particle.duration}s ease-out forwards`,
+            animationDelay: `${Math.random() * 0.5}s`
           }}
         >
-          <div className="w-full h-full bg-gradient-to-r from-gray-400 to-black rounded-full" />
+          <div 
+            className="w-full h-full rounded-full"
+            style={{
+              background: `radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 70%, transparent 100%)`,
+              transform: `rotate(${particle.angle}deg)`
+            }}
+          />
         </div>
       ))}
 
       {/* Main Logo */}
-      <div className="relative">
+      <div 
+        className="relative transition-transform duration-300 ease-out"
+        style={{
+          transform: `translate(${magneticOffset.x}px, ${magneticOffset.y}px)`
+        }}
+      >
         {showTypewriter ? (
           // Typewriter phase
           <span className={`${className} typewriter-text`}>
@@ -103,14 +140,18 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
                   logo-letter 
                   inline-block 
                   transition-all 
-                  duration-300 
+                  duration-500 
+                  ease-out
                   ${isHovered ? 'hovered' : ''}
                   ${isHovered ? 'glow-text' : ''}
                   gradient-text
                 `}
                 style={{
                   animationDelay: `${index * 0.05}s`,
-                  transform: isHovered ? `translateY(-${Math.sin(index * 0.5) * 3}px) rotateZ(${Math.sin(index * 0.3) * 2}deg)` : 'none'
+                  transform: isHovered 
+                    ? `translateY(-${Math.sin(index * 0.5) * 4}px) rotateZ(${Math.sin(index * 0.3) * 3}deg) scale(${1 + Math.sin(index * 0.2) * 0.1})` 
+                    : 'none',
+                  transitionDelay: `${index * 0.02}s`
                 }}
               >
                 {letter === ' ' ? '\u00A0' : letter}
@@ -120,26 +161,28 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
             {/* Animated underline */}
             <div 
               className={`
-                logo-underline 
                 absolute 
                 bottom-0 
                 left-0 
                 w-full 
                 h-0.5 
                 transition-all 
-                duration-500
-                ${isHovered ? 'animate-pulse' : ''}
+                duration-700
+                ease-out
+                ${isHovered ? 'logo-underline active' : ''}
               `}
               style={{
                 background: isHovered 
-                  ? 'linear-gradient(90deg, transparent, #000, transparent)' 
-                  : 'transparent'
+                  ? 'linear-gradient(90deg, transparent, #000, #333, #000, transparent)' 
+                  : 'transparent',
+                transform: isHovered ? 'scaleX(1.1)' : 'scaleX(0)',
+                transformOrigin: 'center'
               }}
             />
           </span>
         )}
 
-        {/* Glow effect overlay */}
+        {/* Enhanced Glow effect overlay */}
         {isHovered && !showTypewriter && (
           <div className="absolute inset-0 pointer-events-none">
             <span 
@@ -148,15 +191,42 @@ export const SpectacularLogo = ({ text = "Elchin Hussain", className = "" }) => 
                 absolute 
                 top-0 
                 left-0 
-                opacity-20 
+                opacity-30 
                 blur-sm 
                 bg-gradient-to-r 
-                from-gray-600 
-                to-black 
+                from-gray-500 
+                via-black 
+                to-gray-500
                 bg-clip-text 
                 text-transparent
                 animate-pulse
               `}
+              style={{
+                transform: `translate(${magneticOffset.x * 0.5}px, ${magneticOffset.y * 0.5}px)`
+              }}
+            >
+              {text}
+            </span>
+            
+            {/* Additional glow layers */}
+            <span 
+              className={`
+                ${className} 
+                absolute 
+                top-0 
+                left-0 
+                opacity-15 
+                blur-md 
+                bg-gradient-to-r 
+                from-gray-300 
+                via-black 
+                to-gray-300
+                bg-clip-text 
+                text-transparent
+              `}
+              style={{
+                transform: `translate(${magneticOffset.x * 0.3}px, ${magneticOffset.y * 0.3}px)`
+              }}
             >
               {text}
             </span>
