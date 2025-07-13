@@ -55,9 +55,8 @@ const Homepage = () => {
           
           <FadeInOnScroll delay={600}>
             <div className="mb-12">
-              <MorphingText 
-                texts={morphingTexts}
-                interval={4000}
+              <SimpleText 
+                text="Creating beyond categories. Designing with purpose."
                 className="text-xl md:text-2xl font-light text-gray-600 tracking-wide"
               />
             </div>
