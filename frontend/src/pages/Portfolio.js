@@ -7,7 +7,8 @@ import {
   ParallaxContainer, 
   ScaleOnScroll, 
   SlideAndFade, 
-  MorphingBox 
+  MorphingBox,
+  TypewriterOnScroll 
 } from '../components/ScrollAnimations';
 
 const Portfolio = () => {
