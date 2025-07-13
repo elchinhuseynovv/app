@@ -215,18 +215,31 @@ const Contact = () => {
                     <h3 className="text-lg font-light text-black mb-4">
                       <StaggerText text="Social Media" delay={50} />
                     </h3>
-                    <div className="flex flex-wrap gap-4">
+                    <div className="grid grid-cols-2 gap-4">
                       {socialLinks.map((link, index) => (
                         <a
                           key={link.name}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-300 transform hover:scale-105"
+                          className={`group relative p-4 rounded-lg ${link.bgColor} border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg overflow-hidden`}
                           style={{ animationDelay: `${index * 100}ms` }}
                         >
-                          <span className="text-lg">{link.icon}</span>
-                          <span className="text-sm font-light">{link.name}</span>
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative z-10 flex items-center space-x-3">
+                            <span className="text-2xl transform group-hover:scale-110 transition-transform duration-300">
+                              {link.icon}
+                            </span>
+                            <div>
+                              <span className={`text-sm font-medium text-gray-700 ${link.hoverColor} transition-colors duration-300`}>
+                                {link.name}
+                              </span>
+                              <div className="text-xs text-gray-500 mt-1">
+                                Connect with me
+                              </div>
+                            </div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 group-hover:w-full transition-all duration-300"></div>
                         </a>
                       ))}
                     </div>
