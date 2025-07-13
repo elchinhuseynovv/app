@@ -28,7 +28,7 @@ const About = () => {
               </h1>
               <p className="text-xl text-gray-600 font-light leading-relaxed">
                 <TypingText 
-                  text="I'm a multi-disciplinary creative who believes in the power of design to transcend traditional boundaries."
+                  text="I'm a backend-focused developer and computer science graduate student with a growing foundation in AI and software quality. My journey into tech began with hands-on IT support roles, but my passion has evolved toward building robust backend systems and exploring AI-driven applications."
                   speed={30}
                 />
               </p>
@@ -36,7 +36,7 @@ const About = () => {
             <div className="relative">
               <div className="aspect-[3/4] bg-gray-100 overflow-hidden transform hover:scale-105 transition-transform duration-500">
                 <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=face"
+                  src="/images/Adobe Express - file.jpg"
                   alt="Elchin Hussain"
                   className="w-full h-full object-cover"
                 />
@@ -56,19 +56,16 @@ const About = () => {
             <div className="space-y-8 text-gray-700 font-light leading-relaxed">
               <p className="text-xl slide-in-text">
                 <RevealText 
-                  text="For over a decade, I've been exploring the intersection of visual design, photography, and digital art. My work is driven by a simple belief: the most powerful creative solutions emerge when we stop thinking in categories and start thinking in possibilities."
+                  text="With practical experience in technologies like Python, SQL, REST APIs, and PowerShell, I've contributed to projects that required secure data handling, automation, and system integration. During my time at Solvd, Inc., I supported software quality through rigorous testing workflows, reinforcing my understanding of backend logic and architecture from a QA perspective."
                   delay={500}
                 />
               </p>
               <p className="zoom-in-text delay-300">
-                Based between New York and Barcelona, I collaborate with forward-thinking brands, artists, and cultural 
-                institutions to create work that resonates on both intellectual and emotional levels. My approach is 
-                rooted in deep research, thoughtful experimentation, and an unwavering commitment to craft.
+                My ongoing Master’s in Computer Science provides me with a strong academic background in programming and AI-related concepts. I’m especially interested in using Python for tasks such as data processing and automation, and I continue to strengthen my grasp of algorithms, machine learning, and system intelligence.
               </p>
               <p className="bounce-text delay-500">
-                Whether developing a comprehensive brand identity, capturing the essence of a space through photography, 
-                or creating digital art that challenges perception, I bring the same level of curiosity and attention 
-                to detail to every project.
+                I have worked with tools like Git, GitHub, and Jira, and I'm comfortable working in agile environments. My background in both manual testing and backend scripting has given me a well-rounded view of software development from both a systems and user perspective.
+                Fluent in four languages and currently based in Warsaw, I bring excellent communication skills and cross-cultural awareness to every project — particularly valuable in global tech environments.
               </p>
             </div>
           </div>
@@ -80,7 +77,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light text-black mb-12 tracking-tight">
             <WaveText 
-              text="Creative Philosophy" 
+              text="Coding Philosophy" 
               className="hover-shadow"
             />
           </h2>
@@ -128,16 +125,16 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                category: "Design",
-                skills: ["Brand Identity", "Typography", "Layout Design", "Digital Art", "UI/UX Design"]
+                category: "Main",
+                skills: ["Backend Development	", "AI & Machine Learning	", "Web Development", "API Integration", "Database Management (SQL)"]
               },
               {
-                category: "Photography",
-                skills: ["Portrait", "Architecture", "Street", "Commercial", "Fine Art"]
+                category: "Secondary",
+                skills: ["Frontend Development", "Full-Stack Development", "Responsive Web Design", "UI/UX Prototyping (Figma, Sketch)", "Component-based Frameworks (React, Vue)"]
               },
               {
-                category: "Technology",
-                skills: ["Adobe Creative Suite", "Cinema 4D", "Figma", "Sketch", "Web Design"]
+                category: "Hobbies",
+                skills: ["Music Production", "Video Editing", "Color Grading", "Sound Engineering", "Football Player"]
               }
             ].map((category, index) => (
               <div key={index} className="space-y-6">
@@ -218,12 +215,12 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center">
           <blockquote className="text-2xl md:text-3xl font-light text-black mb-8 italic">
             <MouseFollowText 
-              text="&quot;Design is not just what it looks like and feels like. Design is how it works.&quot;"
+              text="&quot;Behind every seamless experience lies a mind that mastered both logic and flow.&quot;"
               className="hover-shadow"
             />
           </blockquote>
           <p className="text-gray-600 font-light">
-            <TypingText text="— My design philosophy" speed={50} />
+            <TypingText text="— Elchin Hussain" speed={50} />
           </p>
         </div>
       </section>

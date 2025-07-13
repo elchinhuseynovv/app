@@ -289,7 +289,7 @@ const Contact = () => {
           
           <SlideAndFade direction="up" className="mb-8">
             <p className="text-lg text-gray-600 font-light">
-              <TypewriterOnScroll text="I'm currently accepting new projects for Q3 2024. Whether you're looking for brand identity, creative direction, or collaborative partnerships, I'd love to hear about your vision." />
+              <TypewriterOnScroll text="I'm currently accepting new projects for Q3 2025. Whether you're looking for brand identity, creative direction, or collaborative partnerships, I'd love to hear about your vision." />
             </p>
           </SlideAndFade>
 

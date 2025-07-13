@@ -122,16 +122,16 @@ const Homepage = () => {
               {/* Featured Work Items */}
               {[
                 {
-                  title: "Brand Identity System",
-                  category: "Design",
-                  image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop",
-                  description: "Complete visual identity for emerging tech startup"
+                  title: "Full - Stack",
+                  category: "Raw-Media",
+                  image: "/images/projects/image.png",
+                  description: "Recently completed this website as the full-stack developer — responsible for both frontend and backend development. Delivered a complete visual identity system for an emerging tech startup."
                 },
                 {
-                  title: "Urban Landscapes",
-                  category: "Photography",
-                  image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
-                  description: "Architectural photography series exploring modern cityscapes"
+                  title: "Back End",
+                  category: "German Academy",
+                  image: "images/projects/Screenshot 2025-07-13 200405.png",
+                  description: "Worked on the backend development of this project, implementing server-side features and database integration for the German Academy."
                 },
                 {
                   title: "Digital Abstract",
